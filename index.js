@@ -11,7 +11,7 @@ app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Credentials",true)
     next()
     })
-    app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+    app.use(cors({ origin: 'https://amazon-eta-nine.vercel.app/', credentials: true }));
 app.use(express.json())
 app.use('/api/v1/user',UserRouter)
 app.use('/api/v1/auth',AuthRouter)
