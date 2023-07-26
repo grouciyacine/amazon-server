@@ -1,0 +1,41 @@
+import mongoose from "mongoose";
+const ProductSchema=new mongoose.Schema({
+    title:{
+        type:String,
+        required:[true,'required']
+    },
+    description:{
+        type:String,
+        required:[true,'required'],
+    },
+    img:{
+        type:String,
+        required:[true,'required'],
+    },
+    price:{
+        type:Number,
+        required:[true,'required'],
+        default:0
+    },
+    rating:{
+        type:Number,
+        min:0,
+        max:5,
+        default:0
+    },
+    category:{
+        type:String,
+        required:true,
+    },
+    imgsURLS:{
+    type:[String]
+    },
+    about:{
+        type:[String]
+    },
+    brand:{
+        type:String,
+        required:true,
+    }
+},{timestamps:true})
+export default  mongoose.model('Product',ProductSchema)
