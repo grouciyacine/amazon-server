@@ -6,13 +6,26 @@ import ProductRouter from './routes/Products.js'
 import UserRouter from './routes/User.js'
 import cors from 'cors'
 const app=express();
+app.use(express.json())
 dotenv.config()
 app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Credentials",true)
     next()
     })
     app.use(cors({ origin: 'https://amazon-eta-nine.vercel.app/', credentials: true }));
-app.use(express.json())
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://amazon-eta-nine.vercel.app/');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  //res.setHeader('Cross-Origin-Opener-Policy', 'unsafe-none');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+/*app.use((req,res,next)=>{
+    res.header("Access-Control-Allow-Credentials",true)
+    next()
+    })
+    app.use(cors({ origin: 'https://amazon-eta-nine.vercel.app/', credentials: true }));*/
+
 app.use('/api/v1/user',UserRouter)
 app.use('/api/v1/auth',AuthRouter)
 app.use('/api/v1/product',ProductRouter)
