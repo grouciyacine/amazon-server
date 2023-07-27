@@ -12,9 +12,9 @@ app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Credentials",true)
     next()
     })
-    app.use(cors({ origin: 'https://amazon-grouciyacine.vercel.app/', credentials: true }));
+    app.use(cors({ origin: 'https://amazon-grouciyacine.vercel.app', credentials: true }));
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://amazon-grouciyacine.vercel.app/');
+  res.setHeader('Access-Control-Allow-Origin', 'https://amazon-grouciyacine.vercel.app');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   //res.setHeader('Cross-Origin-Opener-Policy', 'unsafe-none');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
